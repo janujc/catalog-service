@@ -18,4 +18,11 @@ public class BookService {
         return bookRepository.findByIsbn(isbn).orElseThrow(() -> new BookNotFoundException(isbn));
     }
 
+    public Book addBookToCatalog(Book book) {
+        if (bookRepository.existsByIsbn(book.isbn())) {
+            throw new BookAlreadyExistsException(book.isbn());
+        }
+        return bookRepository.save(book);
+    }
+
 }
