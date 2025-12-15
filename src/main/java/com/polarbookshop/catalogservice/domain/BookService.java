@@ -25,4 +25,17 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    public void removeBookFromCatalog(String isbn) {
+        bookRepository.deleteByIsbn(isbn);
+    }
+
+    public Book editBookDetails(String isbn, Book book) {
+        return bookRepository.findByIsbn(isbn)
+                .map(existingBook -> {
+                    Book toUpdate = new Book(existingBook.isbn(), book.title(), book.author(), book.price());
+                    return bookRepository.save(toUpdate);
+                })
+                .orElseGet(() -> addBookToCatalog(book));
+    }
+
 }
