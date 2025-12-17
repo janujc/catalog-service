@@ -1,10 +1,12 @@
-package com.polarbookshop.catalogservice.domain;
+package com.polarbookshop.catalogservice.persistence;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Repository;
+
+import com.polarbookshop.catalogservice.domain.Book;
 
 @Repository
 public class InMemoryBookRepository implements BookRepository {

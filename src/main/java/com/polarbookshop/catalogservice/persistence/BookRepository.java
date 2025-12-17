@@ -1,6 +1,8 @@
-package com.polarbookshop.catalogservice.domain;
+package com.polarbookshop.catalogservice.persistence;
 
 import java.util.Optional;
+
+import com.polarbookshop.catalogservice.domain.Book;
 
 public interface BookRepository {
 
